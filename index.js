@@ -45,6 +45,10 @@ try {
 }
 })
 
+app.get('/test', (req,res)=>{
+  res.send('Hello test')
+})
+
 app.listen(process.env.PORT || 5000, function () {
   console.log('SERVER RUN port 5000')
 })
