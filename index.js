@@ -2,13 +2,14 @@ var express = require('express')
 var cors = require('cors')
 const mysql = require('mysql2');
 const fs = require('fs');
+require("dotenv").config()
 
 
 const connection = mysql.createConnection({
-  host: 'nextsoftwarethailand.com',
-  user: 'nextsoft_dev_01',
-password:'nextsoft1234',
-  database: 'nextsoft_dev_01'
+  host: process.env.HOST_HOSTNAME,
+  user: process.env.HOST_USERNAME,
+password:process.env.HOST_PASSWORD,
+  database: process.env.HOST_DATABASE
 });
 
 var app = express()
@@ -46,6 +47,7 @@ try {
 })
 
 app.get('/test', (req,res)=>{
+
   res.send('Hello test')
 })
 
